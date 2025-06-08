@@ -224,6 +224,7 @@ def registrar_reposicion(sistema):
     pieza.reponer_stock(cantidad_lotes)
     print("Reposición registrada.")
 
+
 def listar_clientes(sistema):
     print("-- Clientes --")
     for c in sistema.clientes:
@@ -246,7 +247,25 @@ def listar_piezas(sistema):
 
 def listar_contabilidad(sistema):
     print("-- Contabilidad --")
-    print("Funcionalidad no implementada.")
+    
+    costo_total = 0
+    ingreso_total = 0
+
+    for pedido in sistema.pedidos:
+        if pedido.estado == Pedido.ESTADO_ENTREGADO:
+            costo_total += pedido.maquina.costo_produccion
+            ingreso_total += pedido.precio_venta
+
+    ganancia = ingreso_total - costo_total
+    impuesto = ganancia * 0.25
+    ganancia_final = ganancia - impuesto
+
+    
+    print(f"Costo total: ${costo_total:.2f}")
+    print(f"Ingreso total: ${ingreso_total:.2f}")
+    print(f"Ganancia: ${ganancia:.2f}")
+    print(f"Impuesto IRAE (25%): ${impuesto:.2f}")
+    print(f"Ganancia final: ${ganancia_final:.2f}")
 
 def main():
     sistema = Sistema()
