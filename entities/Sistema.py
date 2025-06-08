@@ -1,5 +1,6 @@
 from exeptions import ExceptionPiezaYaExiste, ExceptionMaquinaYaExiste, ExceptionClienteYaExiste
 from entities.Cliente import ClienteParticular, Empresa
+
 class Sistema:
     def __init__(self):
         self.piezas = []

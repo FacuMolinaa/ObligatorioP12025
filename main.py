@@ -54,7 +54,7 @@ def registrar_pieza(sistema):
         print("Error:", e)
 
 def registrar_maquina(sistema):
-    print("-- Registrar Máquina --")
+    print("--- Registrar Máquina ---")
     descripcion = input("Descripción: ")
     maquina = Maquina(descripcion)
     

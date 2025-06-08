@@ -20,4 +20,4 @@ class Pieza:
         self.cantidad_disponible -= cantidad
 
     def __str__(self):
-        return f"Pieza {self.codigo} - {self.descripcion} (Disponible: {self.cantidad_disponible})"
+        return f"Pieza {self.codigo} - {self.descripcion} (Disponibles: {self.cantidad_disponible})"
